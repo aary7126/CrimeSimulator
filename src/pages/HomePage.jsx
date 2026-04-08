@@ -121,22 +121,12 @@ export function HomePage() {
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           animate={{ opacity: 1, x: 0 }}
-<<<<<<< Updated upstream
-          transition={{ delay: 0.1 }}
-          className="flex items-center gap-3"
-        >
-          {/* Logo badge */}
-          <div className="relative">
-            <div className="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center glow-purple">
-              <Shield size={18} className="text-purple-400" />
-=======
           transition={{ delay: 0.1, type: 'spring', damping: 20 }}
           className="header-brand"
         >
           <div style={{ position: 'relative' }}>
             <div className="header-logo-badge glow-purple">
               <Shield size={18} style={{ color: "var(--accent-purple)" }} />
->>>>>>> Stashed changes
             </div>
             <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#030508] animate-pulse"></span>
           </div>
@@ -149,15 +139,6 @@ export function HomePage() {
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
-<<<<<<< Updated upstream
-          transition={{ delay: 0.1 }}
-          className="flex items-center gap-3"
-        >
-          {/* Live indicator */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            <span className="text-[10px] font-mono font-semibold text-red-400 tracking-widest">LIVE</span>
-=======
           transition={{ delay: 0.1, type: 'spring', damping: 20 }}
           style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
         >
@@ -185,7 +166,6 @@ export function HomePage() {
           <div className="status-chip live hidden-sm-down">
             <span className="status-dot"></span>
             <span>LIVE</span>
->>>>>>> Stashed changes
           </div>
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/4 border border-white/8">
             <Zap size={11} className="text-amber-400" />
@@ -197,12 +177,6 @@ export function HomePage() {
       {/* ── HERO SECTION ── */}
       <section ref={heroRef} className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 pt-8 pb-12 hero-grid">
 
-<<<<<<< Updated upstream
-        {/* Decorative ring */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[700px] h-[700px] rounded-full border border-purple-500/5 animate-spin-slow" />
-          <div className="absolute w-[500px] h-[500px] rounded-full border border-purple-500/4" style={{ animation: 'spin-slow 12s linear infinite reverse' }} />
-=======
         {/* Decorative rings — now more visible */}
         <div className="hero-rings">
           <motion.div
@@ -227,20 +201,10 @@ export function HomePage() {
               border: '1px dashed rgba(239,68,68,0.07)',
             }}
           />
->>>>>>> Stashed changes
         </div>
 
         {/* Case file badge */}
         <motion.div
-<<<<<<< Updated upstream
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="mb-6 flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/8 border border-purple-500/20"
-        >
-          <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse inline-block"></span>
-          <span className="text-xs font-semibold font-mono text-purple-300 tracking-widest uppercase">Interactive Case Files · 3 Active Investigations</span>
-=======
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -248,28 +212,17 @@ export function HomePage() {
         >
           <span className="hero-badge-pulse"></span>
           <span>Interactive Case Files · {CASES.length} Active Investigations</span>
->>>>>>> Stashed changes
         </motion.div>
 
         {/* Main title */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-<<<<<<< Updated upstream
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center mb-6"
-=======
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
           className="hero-title"
->>>>>>> Stashed changes
         >
           {/* Glowing magnifier emoji */}
           <motion.div
-<<<<<<< Updated upstream
-            animate={{ scale: [1, 1.06, 1], filter: ['drop-shadow(0 0 20px rgba(139,92,246,0.4))', 'drop-shadow(0 0 40px rgba(139,92,246,0.8))', 'drop-shadow(0 0 20px rgba(139,92,246,0.4))'] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="text-7xl mb-6 block animate-float"
-=======
             animate={{
               y: [0, -8, 0],
               filter: [
@@ -280,54 +233,33 @@ export function HomePage() {
             }}
             transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
             className="hero-emoji"
->>>>>>> Stashed changes
           >
             🔍
           </motion.div>
 
           <h1 className="font-display text-[72px] md:text-[96px] leading-none tracking-tight mb-4">
             <motion.span
-<<<<<<< Updated upstream
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="block shimmer-text"
-=======
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, type: 'spring', damping: 18 }}
               className="title-word shimmer-text"
->>>>>>> Stashed changes
             >
               CRIME
             </motion.span>
             <motion.span
-<<<<<<< Updated upstream
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="block text-white text-glow-white"
-=======
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, type: 'spring', damping: 18 }}
               className="title-word text-glow-white"
               style={{ color: '#fff' }}
->>>>>>> Stashed changes
             >
               INVESTIGATION
             </motion.span>
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-<<<<<<< Updated upstream
-              transition={{ delay: 0.3 }}
-              className="block text-white/30 text-[40px] md:text-[52px]"
-              style={{ letterSpacing: '1rem' }}
-=======
               transition={{ delay: 0.55, type: 'spring', damping: 18 }}
               className="title-word title-simulator"
->>>>>>> Stashed changes
             >
               SIMULATOR
             </motion.span>
@@ -336,13 +268,8 @@ export function HomePage() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-<<<<<<< Updated upstream
-            transition={{ delay: 0.5 }}
-            className="text-slate-400 text-base md:text-lg max-w-lg mx-auto leading-relaxed"
-=======
             transition={{ delay: 0.7 }}
             className="hero-subtitle"
->>>>>>> Stashed changes
           >
             Analyse evidence. Expose contradictions.
             <span className="text-purple-300"> Name the culprit</span> before time runs out.
@@ -353,13 +280,8 @@ export function HomePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-<<<<<<< Updated upstream
-          transition={{ delay: 0.6 }}
-          className="flex items-center gap-0 mb-14 rounded-2xl overflow-hidden border border-white/6 bg-white/2"
-=======
           transition={{ delay: 0.8 }}
           className="hero-stats"
->>>>>>> Stashed changes
         >
           {[
             { value: '3',     label: 'Cases',          icon: '📁' },
@@ -368,14 +290,6 @@ export function HomePage() {
             { value: '15–20m',label: 'Per Case',       icon: '⏱' },
           ].map((stat, i) => (
             <React.Fragment key={stat.label}>
-<<<<<<< Updated upstream
-              <div className="px-7 py-4 text-center">
-                <div className="text-xs mb-1">{stat.icon}</div>
-                <div className="text-xl font-black font-mono text-purple-300">{stat.value}</div>
-                <div className="text-[10px] text-slate-600 uppercase tracking-wider">{stat.label}</div>
-              </div>
-              {i < 3 && <div className="w-px h-10 bg-white/6" />}
-=======
               <motion.div
                 className="stat-item"
                 whileHover={{ background: 'rgba(139,92,246,0.06)' }}
@@ -386,7 +300,6 @@ export function HomePage() {
                 <div className="stat-label">{stat.label}</div>
               </motion.div>
               {i < 3 && <div className="stat-divider" />}
->>>>>>> Stashed changes
             </React.Fragment>
           ))}
         </motion.div>
@@ -403,22 +316,12 @@ export function HomePage() {
       </section>
 
       {/* ── CASE SELECTION ── */}
-<<<<<<< Updated upstream
-      <section className="relative z-10 px-6 pb-8 max-w-6xl mx-auto w-full">
-        {/* Decorative label */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="flex items-center gap-4 mb-8"
-=======
       <section className="case-selection">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
           className="case-label-row"
->>>>>>> Stashed changes
         >
           <div className="flex-1 h-px bg-linear-to-r from-transparent to-purple-500/20" />
           <div className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5">
@@ -428,9 +331,6 @@ export function HomePage() {
           <div className="flex-1 h-px bg-linear-to-l from-transparent to-purple-500/20" />
         </motion.div>
 
-<<<<<<< Updated upstream
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-=======
         {/* ── Scroll hint ── */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -451,7 +351,6 @@ export function HomePage() {
           onMouseUp={onMouseUp}
           onMouseLeave={onMouseUp}
         >
->>>>>>> Stashed changes
           {CASES.map((c, i) => (
             <PremiumCaseCard
               key={c.id}
@@ -466,19 +365,11 @@ export function HomePage() {
         </div>
       </section>
 
-<<<<<<< Updated upstream
-      {/* ── CRIME TAPE FOOTER ── */}
-      <div className="relative z-10 mt-auto">
-        <div className="crime-tape h-4 opacity-30" />
-        <footer className="bg-[#030508] border-t border-white/4 py-5 text-center">
-          <span className="text-slate-700 text-xs font-mono tracking-widest">
-=======
       {/* ── FOOTER ── */}
       <div className="footer-wrap">
         <div className="crime-tape footer-tape" />
         <footer className="footer-content">
           <span>
->>>>>>> Stashed changes
             BUILT WITH ❤ BY{' '}
             <span className="text-purple-500/70 font-bold tracking-[0.3em]">PASTA</span>
           </span>
@@ -509,12 +400,7 @@ const SPATTERS = [
 
 function BloodMarks() {
   return (
-<<<<<<< Updated upstream
-    <div className="fixed inset-0 pointer-events-none z-5 overflow-hidden">
-      {/* ── Top-edge blood drips  ────────────────── */}
-=======
     <div className="blood-marks-container">
->>>>>>> Stashed changes
       {DRIPS.map((d) => (
         <motion.div
           key={d.id}
@@ -543,18 +429,7 @@ function BloodMarks() {
           }}
         />
       ))}
-<<<<<<< Updated upstream
-
-      {/* ── Blood splatter blobs ─────────────────── */}
-      <svg
-        className="absolute inset-0 w-full h-full"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid slice"
-      >
-=======
       <svg className="blood-svg-layer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
->>>>>>> Stashed changes
         <defs>
           <filter id="blood-blur"><feGaussianBlur in="SourceGraphic" stdDeviation="0.15" /></filter>
           <filter id="blood-goo">
@@ -571,12 +446,6 @@ function BloodMarks() {
             />
             {[...Array(5)].map((_, j) => {
               const angle = (j / 5) * Math.PI * 2;
-<<<<<<< Updated upstream
-              const dist  = s.r * 0.025 + j * 0.004;
-              const mx    = `calc(${s.cx} + ${Math.cos(angle) * dist}%)`;
-              const my    = `calc(${s.cy} + ${Math.sin(angle) * dist}%)`;
-=======
->>>>>>> Stashed changes
               return (
                 <motion.circle key={j}
                   cx={`${parseFloat(s.cx) + Math.cos(angle) * s.r * 0.025}%`}
@@ -594,23 +463,9 @@ function BloodMarks() {
         <motion.path d="M 95 82 Q 90 78 93 70 Q 95 64 91 58" stroke="#6b0000" strokeWidth="0.6" fill="none" strokeLinecap="round"
           opacity={0} animate={{ opacity: 0.3 }} transition={{ delay: 3.8, duration: 1.5 }} style={{ filter: 'blur(0.3px)' }} />
       </svg>
-<<<<<<< Updated upstream
-
-      {/* ── Blood handprint — left edge ──────────── */}
-      <motion.svg
-        viewBox="0 0 60 90"
-        xmlns="http://www.w3.org/2000/svg"
-        initial={{ opacity: 0, rotate: -15 }}
-        animate={{ opacity: 0.18, rotate: -15 }}
-        transition={{ delay: 4.5, duration: 1.2 }}
-        style={{ position: 'absolute', left: '-8px', top: '38%', width: 60, height: 90 }}
-      >
-        {/* Palm */}
-=======
       <motion.svg viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg"
         initial={{ opacity: 0, rotate: -15 }} animate={{ opacity: 0.18, rotate: -15 }} transition={{ delay: 4.5, duration: 1.2 }}
         style={{ position: 'absolute', left: '-8px', top: '38%', width: 60, height: 90 }}>
->>>>>>> Stashed changes
         <ellipse cx="30" cy="65" rx="18" ry="20" fill="#8b0000" filter="url(#blood-blur)" />
         {/* Thumb */}
         <ellipse cx="10" cy="58" rx="6" ry="10" fill="#8b0000" transform="rotate(-30 10 58)" />
@@ -632,31 +487,11 @@ function BloodMarks() {
 // ── ATMOSPHERIC BACKGROUND ────────────────────────────────────────────────
 function AtmosphericBackground() {
   return (
-<<<<<<< Updated upstream
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Deep purple nebula */}
-      <div className="absolute top-[-30%] left-[-20%] w-[900px] h-[900px] rounded-full opacity-30"
-        style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.15) 0%, rgba(139,92,246,0.05) 50%, transparent 70%)' }} />
-      {/* Red tint bottom right */}
-      <div className="absolute bottom-[-20%] right-[-15%] w-[700px] h-[700px] rounded-full opacity-20"
-        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 70%)' }} />
-      {/* Cyan accent */}
-      <div className="absolute top-[35%] right-[20%] w-[400px] h-[400px] rounded-full opacity-15"
-        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.09) 0%, transparent 70%)' }} />
-
-      {/* Scanline effect */}
-      <div className="absolute inset-0 opacity-30"
-        style={{
-          background: 'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px)'
-        }}
-      />
-=======
     <div className="atmospheric-bg">
       <div className="nebula-purple" />
       <div className="nebula-red" />
       <div className="nebula-cyan" />
       <div className="scanline-overlay" />
->>>>>>> Stashed changes
 
       {/* Animated grain layer */}
       <motion.div
@@ -699,13 +534,6 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       onClick={onSelect}
-<<<<<<< Updated upstream
-      className="relative cursor-pointer group"
-    >
-      {/* Gradient border glow */}
-      <div
-        className="absolute -inset-0.5 rounded-[18px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
-=======
       className="case-card-wrapper"
       style={{ transform: isHovered ? 'translateY(-6px)' : 'translateY(0)', transition: 'transform 0.35s cubic-bezier(0.22,1,0.36,1)' }}
     >
@@ -714,32 +542,10 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
         className="case-card-glow"
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.4 }}
->>>>>>> Stashed changes
         style={{ background: `linear-gradient(135deg, ${meta.color}60, transparent, ${meta.color}30)` }}
       />
 
       {/* Card body */}
-<<<<<<< Updated upstream
-      <div className="relative rounded-[16px] overflow-hidden border border-white/6 bg-[#0a1119] group-hover:border-white/12 transition-all duration-300"
-        style={{ boxShadow: isHovered ? `0 20px 60px rgba(0,0,0,0.6), 0 0 30px ${meta.color}15` : '0 4px 20px rgba(0,0,0,0.4)' }}
-      >
-        {/* Top accent strip */}
-        <div className="h-0.5 w-full" style={{ background: `linear-gradient(90deg, transparent, ${meta.color}, transparent)`, opacity: isHovered ? 1 : 0.3, transition: 'opacity 0.3s' }} />
-
-        {/* Case number watermark */}
-        <div className="absolute top-4 right-4 font-display text-[80px] leading-none font-bold opacity-[0.035] text-white select-none pointer-events-none">
-          {String(index + 1).padStart(2, '0')}
-        </div>
-
-        {/* Header zone */}
-        <div className="relative px-5 pt-5 pb-4">
-          {/* Difficulty badge */}
-          <div className="flex items-center justify-between mb-4">
-            <span
-              className="text-[9px] font-mono font-bold px-2.5 py-1 rounded-md tracking-widest border"
-              style={{ color: meta.color, background: meta.bg, borderColor: meta.border }}
-            >
-=======
       <div
         className="case-card"
         style={{
@@ -768,7 +574,6 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
         <div className="case-card-header">
           <div className="case-badge-row">
             <span className="difficulty-badge" style={{ color: meta.color, background: meta.bg, borderColor: meta.border }}>
->>>>>>> Stashed changes
               {meta.label}
             </span>
             <div className="flex items-center gap-1.5 text-[10px] text-slate-600 font-mono">
@@ -778,36 +583,18 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
           </div>
 
           <motion.div
-<<<<<<< Updated upstream
-            animate={isHovered ? { y: -4, scale: 1.08 } : { y: 0, scale: 1 }}
-            transition={{ type: 'spring', damping: 15, stiffness: 200 }}
-            className="text-5xl mb-4 block"
-            style={{ filter: isHovered ? `drop-shadow(0 0 16px ${meta.color}80)` : 'none', transition: 'filter 0.3s' }}
-=======
             animate={isHovered ? { y: -6, scale: 1.12, rotate: [-1, 1, -1] } : { y: 0, scale: 1, rotate: 0 }}
             transition={{ type: 'spring', damping: 12, stiffness: 180 }}
             className="case-emoji"
             style={{ filter: isHovered ? `drop-shadow(0 0 20px ${meta.color}90)` : 'none' }}
->>>>>>> Stashed changes
           >
             {caseData.emoji}
           </motion.div>
 
-<<<<<<< Updated upstream
-          {/* Case title */}
-          <h3 className="font-display text-xl text-white tracking-wide mb-1 leading-tight">
-            {caseData.title.toUpperCase()}
-          </h3>
-          <p className="text-xs text-slate-500 mb-3 font-medium">{caseData.subtitle}</p>
-
-          {/* Location chip */}
-          <div className="inline-flex items-center gap-1.5 text-[10px] text-slate-500 bg-white/3 border border-white/6 rounded-md px-2 py-1">
-=======
           <h3 className="case-title">{caseData.title.toUpperCase()}</h3>
           <p className="case-subtitle">{caseData.subtitle}</p>
 
           <div className="location-chip">
->>>>>>> Stashed changes
             <span>📍</span>{caseData.location}
           </div>
         </div>
@@ -816,20 +603,10 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
         <div className="mx-5 h-px bg-white/5" />
 
         {/* Body */}
-<<<<<<< Updated upstream
-        <div className="px-5 py-4">
-          <p className="text-xs text-slate-500 leading-relaxed line-clamp-3 mb-4">
-            {caseData.description}
-          </p>
-
-          {/* Evidence/Suspect chips */}
-          <div className="flex gap-2 mb-4">
-=======
         <div className="case-card-body">
           <p className="case-description">{caseData.description}</p>
 
           <div className="case-chips-row">
->>>>>>> Stashed changes
             <InfoChip icon="🧩" value={caseData.suspects.length} label="Suspects" color={meta.color} />
             <InfoChip icon="🔎" value={caseData.evidence.length} label="Evidence" color={meta.color} />
             <InfoChip icon="📍" value={caseData.timeline.length} label="Events" color={meta.color} />
@@ -837,22 +614,11 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
 
           {/* CTA */}
           <motion.div
-<<<<<<< Updated upstream
-            initial={false}
-            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 4 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center justify-between"
-          >
-            <span className="text-[11px] font-semibold font-mono tracking-wider uppercase" style={{ color: meta.color }}>
-              Open Case File
-            </span>
-=======
             animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 6 }}
             transition={{ duration: 0.25 }}
             className="case-cta-row"
           >
             <span className="case-cta-text" style={{ color: meta.color }}>Open Case File</span>
->>>>>>> Stashed changes
             <motion.div
               animate={{ x: isHovered ? 4 : 0 }}
               className="w-6 h-6 rounded-full flex items-center justify-center"
@@ -866,15 +632,9 @@ function PremiumCaseCard({ caseData, index, isHovered, onHover, onLeave, onSelec
         {/* Bottom hover line */}
         <motion.div
           animate={{ scaleX: isHovered ? 1 : 0 }}
-<<<<<<< Updated upstream
-          transition={{ duration: 0.3 }}
-          className="h-0.5 origin-left"
-          style={{ background: `linear-gradient(90deg, ${meta.color}, transparent)` }}
-=======
           transition={{ duration: 0.35 }}
           className="case-hover-line"
           style={{ background: `linear-gradient(90deg, transparent, ${meta.color}, transparent)`, transformOrigin: 'center' }}
->>>>>>> Stashed changes
         />
       </div>
     </motion.div>
