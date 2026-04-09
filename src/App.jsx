@@ -10,7 +10,7 @@ import { LeaderboardPage } from './pages/LeaderboardPage';
 import { GuideCharacter } from './components/guide/GuideCharacter';
 
 export default function App() {
-  const { gamePhase } = useGameStore();
+  const { gamePhase, isSystemBooted } = useGameStore();
   const { loading } = useAuthStore();
 
   useEffect(() => {

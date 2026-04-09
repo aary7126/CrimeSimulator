@@ -29,6 +29,7 @@ const INITIAL_STATE = {
   // UI
   activeEvidenceTab: 'evidence',
   showBriefing: true,
+  isSystemBooted: true,
 
   // Solved cases (persisted across home navigation)
   solvedCaseIds: [],
@@ -235,7 +236,7 @@ export const useGameStore = create((set, get) => ({
               total_score: (currentStats.total_score || 0) + totalScore,
               cases_solved_count: (currentStats.cases_solved_count || 0) + (isCorrect ? 1 : 0)
             }).eq('id', user.id);
-            
+
             useAuthStore.getState().fetchUserStats(user.id);
           }
         } catch (err) {
@@ -252,4 +253,6 @@ export const useGameStore = create((set, get) => ({
   // ── UI STATE ────────────────────────────────────────────
 
   setActiveEvidenceTab: (tab) => set({ activeEvidenceTab: tab }),
+
+  bootSystem: () => set({ isSystemBooted: true }),
 }));

@@ -8,7 +8,7 @@ export const GuideDialog = () => {
   const { currentStepIndex, nextStep, skipTutorial, setTyping, isTyping, customMessage, isDormant } = useGuideStore();
   const { gamePhase } = useGameStore();
   const [displayedText, setDisplayedText] = useState('');
-  
+
   const currentStep = tutorialSteps ? tutorialSteps[currentStepIndex] : { text: '' };
   const targetText = customMessage || currentStep?.text || '';
 
@@ -17,25 +17,87 @@ export const GuideDialog = () => {
     setTyping(true);
 
     let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i < targetText.length) {
-        setDisplayedText(targetText.substring(0, i + 1));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-        setTyping(false);
-      }
-    }, 20); 
+    let typingInterval;
 
-    return () => clearInterval(typingInterval);
-  }, [currentStepIndex, targetText]);
+    // Emotion & Pacing Heuristics based on text punctuation
+    let emotionalRate = 1.05; // Default natural
+    let emotionalPitch = 0.9; // Default relaxed male
+    let textInterval = 40;    // Default typing match
+
+    if (targetText.includes('!')) {
+      // Excited, Urgent, or Emphatic
+      emotionalRate = 1.15;
+      emotionalPitch = 1.0;
+      textInterval = 30;
+    } else if (targetText.includes('...')) {
+      // Dramatic, Hesitant, or Suspenseful
+      emotionalRate = 0.85;
+      emotionalPitch = 0.8;
+      textInterval = 60;
+    } else if (targetText.includes('?')) {
+      // Questioning, Curious
+      emotionalRate = 1.0;
+      emotionalPitch = 1.05;
+      textInterval = 45;
+    }
+
+    const startTyping = () => {
+      typingInterval = setInterval(() => {
+        if (i < targetText.length) {
+          setDisplayedText(targetText.substring(0, i + 1));
+          i++;
+        } else {
+          clearInterval(typingInterval);
+          setTyping(false);
+        }
+      }, textInterval);
+    };
+
+    if (window.speechSynthesis && targetText && !isDormant) {
+      // Simplest, most reliable pattern to prevent queue-locking
+      window.speechSynthesis.cancel();
+
+      const utterance = new SpeechSynthesisUtterance(targetText);
+
+      // Dynamic emotionally-mapped text speed
+      utterance.rate = emotionalRate;
+      utterance.pitch = emotionalPitch;
+
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length > 0) {
+        // Try to find Google's highly-regarded male voice first, then any generic English male
+        let preferredVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google UK English Male'));
+        if (!preferredVoice) preferredVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Male'));
+        if (!preferredVoice) preferredVoice = voices.find(v => v.lang.startsWith('en')); // Fallback
+
+        if (preferredVoice) utterance.voice = preferredVoice;
+      }
+
+      window.speechSynthesis.speak(utterance);
+
+      // Start typing immediately. Relying on API events is too buggy on Mac.
+      startTyping();
+
+      return () => {
+        clearInterval(typingInterval);
+        // We do NOT call cancel() here anymore. It triggers React strict mode unmount bugs.
+      };
+
+    } else {
+      startTyping();
+      return () => {
+        clearInterval(typingInterval);
+      };
+    }
+
+  }, [currentStepIndex, targetText, isDormant]);
 
   const handleNext = () => {
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     if (customMessage) {
-        skipTutorial(); 
+      skipTutorial();
     } else {
-        nextStep();
+      nextStep();
     }
   };
 
@@ -64,7 +126,7 @@ export const GuideDialog = () => {
         </h3>
         {(!customMessage) && tutorialSteps && (
           <div className="gd-step">
-             Seq {currentStepIndex + 1}/{tutorialSteps.length}
+            Seq {currentStepIndex + 1}/{tutorialSteps.length}
           </div>
         )}
       </div>
@@ -80,14 +142,14 @@ export const GuideDialog = () => {
 
       {/* Footer Controls */}
       <div className="gd-footer">
-         {!customMessage && tutorialSteps && currentStepIndex < tutorialSteps.length - 1 && (
-            <button onClick={handleSkip} className="gd-btn-skip">
-              <SkipForward size={16} /> Skip
-            </button>
-         )}
+        {!customMessage && tutorialSteps && currentStepIndex < tutorialSteps.length - 1 && (
+          <button onClick={handleSkip} className="gd-btn-skip">
+            <SkipForward size={16} /> Skip
+          </button>
+        )}
 
         <button onClick={handleNext} className="gd-btn-next">
-          {customMessage || (tutorialSteps && currentStepIndex === tutorialSteps.length - 1) ? 'Got it!' : 'Next'} 
+          {customMessage || (tutorialSteps && currentStepIndex === tutorialSteps.length - 1) ? 'Got it!' : 'Next'}
           <ChevronRight size={18} />
         </button>
       </div>
